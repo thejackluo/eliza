@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 159 68 211;
+  --color-primary-dark: 125 53 165;
+  --color-primary-light: 191 126 230;
+  
+  --color-secondary: 58 58 241;
+  --color-secondary-dark: 45 45 179;
+  --color-secondary-light: 114 114 245;
+  
+  --color-background: 18 18 18;
+  --color-background-light: 30 30 30;
+  
+  --color-text-primary: 240 240 240;
+  --color-text-secondary: 176 176 176;
+  --color-text-accent: 214 176 255;
+}
+
+body {
+  background: radial-gradient(circle at center, rgba(159, 68, 211, 0.15), rgba(18, 18, 18, 1) 70%);
+  color: rgb(var(--color-text-primary));
+  min-height: 100vh;
+  font-family: 'Space Grotesk', Arial, sans-serif;
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-opacity-70 backdrop-blur-md border border-white/10 shadow-md rounded-xl;
+    background-color: rgba(30, 30, 30, 0.7);
+  }
+
+  .glass-button {
+    @apply px-4 py-2 bg-transparent border border-white/20 rounded-md 
+           hover:border-primary hover:shadow-md transition-all duration-300
+           text-white font-medium;
+  }
+
+  .primary-button {
+    @apply px-4 py-2 border rounded-md 
+           hover:shadow-md transition-all duration-300
+           text-white font-medium;
+    background-color: rgba(159, 68, 211, 0.9);
+    border-color: rgba(159, 68, 211, 0.5);
+  }
+
+  .card {
+    @apply p-5;
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-link {
+    @apply transition-all duration-200;
+    color: rgba(176, 176, 176, 1);
+  }
+  
+  .nav-link:hover {
+    color: rgba(240, 240, 240, 1);
+    text-shadow: 0 0 8px rgba(159, 68, 211, 0.6);
+  }
+
+  /* Text styling */
+  .text-gradient {
+    background: linear-gradient(to right, rgb(240, 240, 240), rgb(159, 68, 211));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Meeting cards */
+  .meeting-card {
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .meeting-card:hover {
+    box-shadow: 0 0 15px rgba(159, 68, 211, 0.5);
+    border-color: rgba(159, 68, 211, 0.3);
+  }
+
+  /* Avatar styles */
+  .avatar {
+    @apply rounded-full border;
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(30, 30, 30);
+  }
+
+  .avatar-group {
+    @apply flex;
+    margin-left: -0.5rem;
+  }
+}
+
+/* Special utility classes */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
